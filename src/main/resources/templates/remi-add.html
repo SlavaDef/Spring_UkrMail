@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Remi Block</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="~{blocks/header :: header}"> <!-- інсертім кусок -->
+
+</header>
+
+
+<div class="container mt-5 mb-5">
+    <h1>Add Remi</h1>
+    <form action="/remi/add" method="post"> <!-- силка на урл і метод при гет все буде відображатися -->
+        <input type="text" name="money" placeholder="add money, only letters" class="form-control"><br>
+        <input type="text" name="number" placeholder="add number" class="form-control"><br>
+        <input type="text" name="description" placeholder="add description" class="form-control"><br>
+        <button type="submit" class="btn btn-success">Add new Remi</button> <!-- при натисканні данні будуть відправлятися на сервер-->
+    </form>
+
+</div>
+
+<div th:insert="~{blocks/footer :: footer}"> <!-- інсертім кусок -->
+
+</div>
+
+</body>
+</html>

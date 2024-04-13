@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <title>List</title>
+</head>
+<body>
+
+<header th:insert="~{blocks/header :: header}">
+
+</header>
+
+
+<div class="container mt-5">
+
+     <div th:each="el : ${remiList}" class="alert alert-info mt-2">
+         <p th:text="${el.getMoney()}"></p>
+         <p th:text="${el.getNumber()}"></p>
+         <p th:text="${el.getDescription()}"></p>
+           <p th:text="${el.getDate}"/>
+
+          <!-- силка/кнопка на note + елемент id для кожної запісі своя силка -->
+           <a th:href="'/edit/'+ ${el.getId()}" class="btn btn-warning">Edit</a> <br><br>
+
+           <!--додаємо форму для видалення, для кнопки -->
+
+           <form th:action="'/remi/delete'" method="post" >
+              <input type="hidden" name="id" th:value="${el.getId()}">
+              <button type="submit" class="btn btn-success">Delete</button>
+          </form>
+
+      </div>
+</div>
+
+
+<div th:insert="~{blocks/footer :: footer}">
+
+</div>
+</body>
+</html>

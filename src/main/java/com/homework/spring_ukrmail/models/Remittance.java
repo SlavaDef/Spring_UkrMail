@@ -2,6 +2,7 @@ package com.homework.spring_ukrmail.models;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 import java.time.LocalDate;
@@ -25,18 +26,16 @@ public class Remittance {
     private String number;
 
     private String description;
-
    // @JsonFormat( pattern = "dd.MM.yyyy") // work
-    @Temporal(value = TemporalType.DATE) // work
-    //@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) // work
+    // @Temporal(value = TemporalType.DATE) // work
+   //  @Temporal(value = TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) // work
     private LocalDate date;
-
 
     public Remittance(int money, String number, String description) {
         this.money = money;
         this.number = number;
         this.description = description;
-
 
     }
 }

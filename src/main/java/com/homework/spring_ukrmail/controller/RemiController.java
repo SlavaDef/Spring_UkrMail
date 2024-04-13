@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.util.List;
 
 
 @AllArgsConstructor
@@ -20,14 +19,13 @@ public class RemiController {
     private RemittanceService service;
 
     @GetMapping("/remi/add") // отримуэмо шаблон для заповнення
-    public String noteAdd(Model model) {
+    public String noteAdd() {
         return "remi-add";
     }
 
-    @PostMapping("/remi/add")
+    @PostMapping("/remi/add") // на такому ж єндпоінті посту передаємо параметри
     public String addRemi(@RequestParam int money, @RequestParam String number,
                           @RequestParam String description) {
-        //  Remittance rem = new Remittance(money, number, description);
         Remittance rem = new Remittance(money, number, description);
         rem.setDate(LocalDate.now());
         service.addRem(rem);

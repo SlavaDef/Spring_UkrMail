@@ -15,10 +15,10 @@
 <div class="container mt-5">
 
      <div th:each="el : ${remiList}" class="alert alert-info mt-2">
-         <p th:text="${el.getMoney()}"></p>
-         <p th:text="${el.getNumber()}"></p>
-         <p th:text="${el.getDescription()}"></p>
-           <p th:text="${el.getDate}"/>
+         <h1 th:text="${el.getMoney()}"></h1>
+         <h1 th:text="${el.getNumber()}"></h1>
+         <h2 th:text="${el.getDescription()}"></h2>
+           <h3 th:text="${el.getDate}"/>
 
           <!-- силка/кнопка на note + елемент id для кожної запісі своя силка -->
            <a th:href="'/edit/'+ ${el.getId()}" class="btn btn-warning">Edit</a> <br><br>
